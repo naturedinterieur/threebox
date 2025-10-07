@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Loading Quinoa Titling Bold font */
+@font-face {
+  font-family: "Quinoa Titling";
+  src: url("https://db.onlinewebfonts.com/t/c3e4e6e2b89c89b8c92e2d4e5f6a7b8c.eot");
+  src: url("https://db.onlinewebfonts.com/t/c3e4e6e2b89c89b8c92e2d4e5f6a7b8c.eot?#iefix") format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/c3e4e6e2b89c89b8c92e2d4e5f6a7b8c.woff2") format("woff2"),
+    url("https://db.onlinewebfonts.com/t/c3e4e6e2b89c89b8c92e2d4e5f6a7b8c.woff") format("woff"),
+    url("https://db.onlinewebfonts.com/t/c3e4e6e2b89c89b8c92e2d4e5f6a7b8c.ttf") format("truetype"),
+    url("https://db.onlinewebfonts.com/t/c3e4e6e2b89c89b8c92e2d4e5f6a7b8c.svg#Quinoa Titling Bold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom class for threebox title using Quinoa Titling Bold */
+.font-threebox {
+  font-family: "Quinoa Titling", "Poppins", sans-serif;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+}
