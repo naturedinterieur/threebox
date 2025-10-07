@@ -16,18 +16,18 @@ const Hero = () => {
   >([])
 
   useEffect(() => {
-    const generated = Array.from({ length: 50 }).map(() => ({
+    const generated = Array.from({ length: 30 }).map(() => ({
       left: `${Math.random() * 100}%`,
       size: Math.random() * 20 + 10,
       rotation: Math.random() * 360,
-      duration: Math.random() * 15 + 8,
+      duration: Math.random() * 18 + 10,
       delay: Math.random() * 5,
     }))
     setLeaves(generated)
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#f8f9f5] via-white to-[#F5F5DC]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#f8f9f5] via-white to-[#F5F5DC] will-change-transform">
       {/* 🌿 Background animé */}
       <div className="absolute inset-0 opacity-5">
         <motion.div
@@ -62,9 +62,10 @@ const Hero = () => {
                 <img
                   src="/threebox-logo.png"
                   alt="threebox"
-                  className="h-48 sm:h-56 lg:h-64 w-auto object-contain relative -left-11 top-18"
+                  className="h-40 sm:h-48 lg:h-64 w-auto object-contain mx-auto sm:mx-0 relative sm:-left-6"
+                  style={{ maxWidth: "100%", height: "auto" }}
                 />
-                <span className="font-bold text-[#6B8E23] text-4xl sm:text-5xl lg:text-6xl">la nature</span>
+                <span className="font-bold text-[#6B8E23] text-4xl sm:text-5xl lg:text-6xl">La nature</span>
                 <span className="font-bold text-[#8B4513] text-4xl sm:text-5xl lg:text-6xl">au bureau</span>
               </div>
             </h1>
@@ -157,13 +158,13 @@ const Hero = () => {
               <motion.div
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                className="absolute bottom-16 left-10 w-40 h-40 rounded-full border-4 border-[#6B8E23]/30"
+                className="absolute bottom-16 left-10 w-48 h-48 rounded-full border-[6px] border-[#6B8E23]/50 shadow-lg shadow-[#6B8E23]/20"
               />
               {/* Cercle en haut à droite */}
               <motion.div
                 animate={{ rotate: [360, 0] }}
                 transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-                className="absolute top-20 right-8 w-52 h-52 rounded-full border-4 border-[#8B4513]/25"
+                className="absolute top-20 right-8 w-60 h-60 rounded-full border-[6px] border-[#8B4513]/40 shadow-lg shadow-[#8B4513]/20"
               />
             </div>
 
@@ -224,7 +225,7 @@ const Hero = () => {
           className="flex flex-col items-center space-y-2"
         >
           <span className="text-[#6B8E23] text-sm font-medium">Découvrez nos modèles</span>
-          <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity }}>
+          <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
             <ArrowDown className="text-[#6B8E23]" size={32} />
           </motion.div>
         </motion.div>
@@ -243,7 +244,7 @@ const Hero = () => {
               delay: leaf.delay,
               ease: "linear",
             }}
-            className="absolute"
+            className="absolute will-change-transform"
             style={{ left: leaf.left, top: "-10%" }}
           >
             <Leaf
