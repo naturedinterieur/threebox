@@ -16,11 +16,11 @@ const Hero = () => {
   >([])
 
   useEffect(() => {
-    const generated = Array.from({ length: 30 }).map(() => ({
+    const generated = Array.from({ length: 20 }).map(() => ({
       left: `${Math.random() * 100}%`,
       size: Math.random() * 20 + 10,
       rotation: Math.random() * 360,
-      duration: Math.random() * 18 + 10,
+      duration: Math.random() * 10 + 12,
       delay: Math.random() * 5,
     }))
     setLeaves(generated)
@@ -31,14 +31,14 @@ const Hero = () => {
       {/* 🌿 Background animé */}
       <div className="absolute inset-0 opacity-5">
         <motion.div
-          animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
+          animate={{ scale: [1, 1.05, 1], rotate: [0, 45, 0] }}
           transition={{ duration: 20, repeat: Infinity }}
-          className="absolute top-20 left-10 w-96 h-96 bg-[#6B8E23] rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-96 h-96 bg-[#6B8E23] rounded-full blur-xl"
         />
         <motion.div
-          animate={{ scale: [1, 1.3, 1], rotate: [0, -90, 0] }}
+          animate={{ scale: [1, 1.05, 1], rotate: [0, -45, 0] }}
           transition={{ duration: 25, repeat: Infinity }}
-          className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#8B4513] rounded-full blur-3xl"
+          className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#8B4513] rounded-full blur-xl"
         />
       </div>
 
@@ -121,8 +121,8 @@ const Hero = () => {
             className="relative"
           >
             <motion.div
-              animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               className="relative z-30"
             >
               <img
@@ -135,7 +135,7 @@ const Hero = () => {
             <motion.div
               animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
               transition={{ duration: 3, repeat: Infinity }}
-              className="absolute inset-0 bg-gradient-to-br from-[#6B8E23] to-[#8B4513] rounded-full blur-3xl -z-10"
+              className="absolute inset-0 bg-gradient-to-br from-[#6B8E23] to-[#8B4513] rounded-full blur-xl -z-10"
             />
 
             {/* Cercles décoratifs */}
@@ -143,12 +143,12 @@ const Hero = () => {
               <motion.div
                 animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
                 transition={{ duration: 8, repeat: Infinity }}
-                className="absolute w-96 h-96 bg-[#6B8E23]/20 rounded-full blur-3xl -top-10 -left-10"
+                className="absolute w-96 h-96 bg-[#6B8E23]/20 rounded-full blur-xl -top-10 -left-10"
               />
               <motion.div
                 animate={{ scale: [1.1, 0.9, 1.1], opacity: [0.15, 0.25, 0.15] }}
                 transition={{ duration: 10, repeat: Infinity }}
-                className="absolute w-[500px] h-[500px] bg-[#8B4513]/15 rounded-full blur-3xl bottom-0 right-0"
+                className="absolute w-[500px] h-[500px] bg-[#8B4513]/15 rounded-full blur-xl bottom-0 right-0"
               />
             </div>
 
