@@ -17,14 +17,33 @@ const ContactSection = () => {
   })
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({ name: "", email: "", message: "" })
-    }, 3000)
-  }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "dd06fb3b-28ec-42bc-be18-ff6ce1955f9c", // 👉 remplace ici par ta clé Web3Forms
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setSubmitted(false), 3000);
+      } else {
+        alert("❌ Une erreur est survenue lors de l’envoi du message.");
+      }
+    } catch (error) {
+      console.error("Erreur réseau :", error);
+      alert("Impossible d’envoyer le message. Vérifie ta connexion Internet.");
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -169,7 +188,7 @@ const ContactSection = () => {
                       placeholder="Parlez-nous de votre projet..."
                     />
                   </div>
-                   
+
                   {/* Ajout d’un simple espace au-dessus du bouton */}
                   <button
                     type="submit"
